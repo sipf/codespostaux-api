@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718031912) do
+ActiveRecord::Schema.define(version: 20160718033247) do
 
   create_table "archipels", force: :cascade do |t|
     t.text     "libelle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "iles", force: :cascade do |t|
+    t.text     "libelle"
+    t.integer  "archipels_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["archipels_id"], name: "index_iles_on_archipels_id"
   end
 
 end

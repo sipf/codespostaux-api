@@ -1,0 +1,2 @@
+class Archipel < ApplicationRecord
+end

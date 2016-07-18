@@ -1,3 +1,3 @@
 class Ile < ApplicationRecord
-  belongs_to :archipels
+  belongs_to :archipel
 end

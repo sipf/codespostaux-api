@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20160718033247) do
 
   create_table "iles", force: :cascade do |t|
     t.text     "libelle"
-    t.integer  "archipels_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["archipels_id"], name: "index_iles_on_archipels_id"
+    t.integer  "archipel_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["archipel_id"], name: "index_iles_on_archipel_id"
   end
 
 end

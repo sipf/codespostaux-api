@@ -29,7 +29,7 @@ module Codepostaux
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '/codes', :headers => :any, :methods => [:get]
+        resource '/codes', :headers => :any, :methods => [:get, :options]
       end
     end
   end

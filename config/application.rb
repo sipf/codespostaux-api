@@ -26,10 +26,15 @@ module Codepostaux
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '/codes', :headers => :any, :methods => [:get, :options]
+        resource '/v1/codes', :headers => :any, :methods => [:get, :options]
       end
     end
   end

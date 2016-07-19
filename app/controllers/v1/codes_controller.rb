@@ -4,6 +4,9 @@ class V1::CodesController < ApplicationController
   def index
     @codes = Ile.select("archipels.libelle AS archipels, iles.libelle AS iles, communes.libelle as commune, communes.code AS code")
     .joins(:archipel, :communes).where(nil)
-    @codes = @codes.where("communes.libelle like ?", "%#{params[:q]}%") if params[:q]
+
+    query = params[:q]
+    @codes = @codes.where("communes.code = ?", "#{params[:q]}") if query.start_with?('98')
+    @codes = @codes.where("communes.libelle like ?", "%#{params[:q]}%") if !query.start_with?('98')
   end
 end
